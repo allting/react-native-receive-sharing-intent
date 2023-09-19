@@ -35,7 +35,7 @@ class ReceiveSharingIntent: NSObject {
     
     private func handleUrl(url: URL?) -> String? {
         if let url = url {
-            let appDomain = Bundle.main.bundleIdentifier!
+            let appDomain = Bundle.main.bundleIdentifier!.lowercased()
             let userDefaults = UserDefaults(suiteName: "group.\(appDomain)")
             if url.fragment == "media" {
                 if let key = url.host?.components(separatedBy: "=").last,
@@ -76,7 +76,7 @@ class ReceiveSharingIntent: NSObject {
                 if let key = url.host?.components(separatedBy: "=").last,
                     let sharedArray = userDefaults?.object(forKey: key) as? [String] {
                     latestText =  sharedArray.joined(separator: ",")
-                    
+
                     let optionalString = latestText;
                     if let unwrapped = optionalString {
                         let text = "text:" + unwrapped;

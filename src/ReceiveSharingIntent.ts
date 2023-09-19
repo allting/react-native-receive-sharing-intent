@@ -37,7 +37,7 @@ class ReceiveSharingIntentModule implements IReceiveSharingIntent {
     }
 
     
-   protected getFileNames(handler: Function, errorHandler: Function, url: string){
+   getFileNames(handler: Function, errorHandler: Function, url: string){
         if(this.isIos){
             ReceiveSharingIntent.getFileNames(url).then((data: any)=>{         
                  let files = this.utils.sortData(data);

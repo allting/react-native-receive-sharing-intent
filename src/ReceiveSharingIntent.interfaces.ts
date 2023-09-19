@@ -1,6 +1,7 @@
 
 export interface IReceiveSharingIntent{
     getReceivedFiles(handler: Function , errorHandler: Function, protocol: string ): void,
+    getFileNames(handler: Function, errorHandler: Function, url: string): void
 }
 
 export interface IUtils{
